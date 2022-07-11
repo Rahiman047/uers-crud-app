@@ -3,8 +3,8 @@ const {v4:uuid, v4} = require("uuid")
 const cors = require("cors")
 const bodyparser = require("body-parser")
 
-const app = express()
-app.use(cors())
+const app = express()                                  
+app.use(cors())                                       //Always install and use cors and body-parser in express projects
 app.use(bodyparser.json())
 
 
