@@ -9,7 +9,7 @@ function Navbar(){
                 <h1 className="nav-heading">Crud-App</h1>
             </div>
             <div className="nav-el">
-                <Link to="/home" className="basic-style">
+                <Link to="/" className="basic-style">
                     Home
                 </Link>
                 <Link to="/adduser" className="basic-style">

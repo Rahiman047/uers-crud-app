@@ -1,6 +1,8 @@
 import Navbar from "../Navbar";
 import "./index.css";
 import {useState,useEffect} from 'react'
+import axios from "axios";
+
 function Home(){
     const [usedData,changeData] = useState([])
 
@@ -9,8 +11,8 @@ function Home(){
     })
 
     const getUserData = async () =>{
-        const response = await fetch("http://localhost:5000")
-        console.log(response)
+        const response = await axios.get("http://localhost:5000")
+        console.log(response.data)
     }
 
     return(

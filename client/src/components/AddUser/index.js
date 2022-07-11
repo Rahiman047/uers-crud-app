@@ -2,6 +2,7 @@ import Navbar from "../Navbar"
 import {v4 as uuidv4} from "uuid"
 import "./index.css"
 import {useState} from "react"
+import axios from "axios"
 
 function AddUser(){
     const [userName,setUserName] = useState(" ")
@@ -20,6 +21,10 @@ function AddUser(){
         setUserContact(e.target.value)
     }
 
+    const enterUser = async (data) =>{
+        const user = await axios.post("http://localhost:5000/user",data)
+    }
+
     const formClicked = (event) =>{
         event.preventDefault()
         const newUser = {
@@ -28,8 +33,7 @@ function AddUser(){
             "contact":userContact,
             "id":uuidv4()
         }
-
-        console.log(newUser)
+        enterUser(newUser)
     }
 
 
