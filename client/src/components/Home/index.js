@@ -13,8 +13,6 @@ function Home(){
         console.log(response)
     }
 
-
-
     return(
         <div>
             <Navbar/>
