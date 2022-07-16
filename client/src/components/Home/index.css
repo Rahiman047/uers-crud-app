@@ -1,0 +1,38 @@
+@media screen and (max-width:470px){
+    .home-tab-menu{
+        display:flex;
+        flex-direction:row;
+        background-color:rgb(47, 239, 239);
+        justify-content: space-evenly;
+        width:400px;
+        border-radius:10px;
+        border-width:0px;
+    }
+    .home-tab-eles{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        margin-top:15vh;
+    } 
+}
+@media screen and (min-width:470px){
+    .home-tab-menu{
+        display:flex;
+        flex-direction:row;
+        background-color:rgb(47, 239, 239);
+        justify-content: space-between;
+        width:770px;
+        border-radius:10px;
+        padding-left:15px;
+        padding-right:15px;
+        border-width:0px;
+    }
+    .home-tab-eles{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        margin-top:15vh;
+    }
+}
