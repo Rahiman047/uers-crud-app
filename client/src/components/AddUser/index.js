@@ -3,6 +3,8 @@ import {v4 as uuidv4} from "uuid"
 import "./index.css"
 import {useState} from "react"
 import axios from "axios"
+import {useNavigate} from 'react-router-dom'           //In this project i used react v6 so in order to use history features i use useNavigate link here refer --- https://stackoverflow.com/questions/63471931/using-history-with-react-router-dom-v6 
+
 
 function AddUser(){
     const [userName,setUserName] = useState("")        //if we give " " instead of "" i saw an placeholder error where placeholder value is visible only after backspace is given so always use ""
@@ -11,7 +13,7 @@ function AddUser(){
     const [userAdded,checkUser] = useState(false)        //To check if user added and to check for response/status.
     const [userUpdate,setUserfield] = useState(" ")
     const [credError,checkError] = useState(false)       //To check if user given all fields correctly.
-
+    const navigate = useNavigate()                       //using navigate 
 
     const nameFieldChanged = (e) =>{
         setUserName(e.target.value)
@@ -31,6 +33,11 @@ function AddUser(){
         if(user.status === 200){
             checkUser(true)
             checkError(false)
+
+            setTimeout(() => {
+                navigate("/")                                //we should use just navigate("pathname") instead of navigate.push()
+            },1000)
+
         }else{
             checkUser(false)
         }

@@ -25,7 +25,7 @@ app.get("/user/:id",(req,res)=>{
     res.send(user)
 })
 
-app.put("/user/:id",(req,res) =>{
+app.put("/users/:id",(req,res) =>{
     const user = users.find((eachUser) => eachUser.id === req.params.id)    //update a existing User
     user.name = req.body.name,
     user.email = req.body.email,
@@ -35,7 +35,7 @@ app.put("/user/:id",(req,res) =>{
 })
 
 app.delete("/user/:id",(req,res) =>{
-    users = users.filter((eachUser) => eachUser.id !== req.params.id)       //deleting a new user
+    users = users.filter((eachUser) => eachUser.id !== req.params.id)       //deleting a user
     res.send("User Deleted Successfully")
 })
 

@@ -9,12 +9,19 @@ function Home(){
 
     useEffect(()=>{
         getUserData()
-    },[])                     //Always pass empty array as second argument in order to prevent the infinite loop and to run useEffect only when mounted
+    }, [])                     //Always pass empty array as second argument in order to prevent the infinite loop and to run useEffect only when mounted
 
     const getUserData = async () =>{
-        const response = await axios.get("http://localhost:5000")
+        const response = await axios.get("http://localhost:5000")          //Getting the Data Initially
         const gotData = await response.data
         changeData(gotData)
+    }
+
+    const getUserDeleteVal = async (id) =>{
+        const response = await axios.delete(`http://localhost:5000/user/${id}`)     //After deleting the User again we have to Call getUserData() function.
+        if(response.status === 200){
+            getUserData()
+        }
     }
 
     return(
@@ -29,7 +36,7 @@ function Home(){
                 </div>
                 <div>
                     {usedData.map((eachItem) => {
-                        return <RenderData key={eachItem.id} name={eachItem.name} email={eachItem.email} contact={eachItem.contact}/>
+                        return <RenderData key={eachItem.id} name={eachItem.name} email={eachItem.email} contact={eachItem.contact} id={eachItem.id} getUserDeleteVal={getUserDeleteVal}/>
                     })}
                 </div>
             </div>
