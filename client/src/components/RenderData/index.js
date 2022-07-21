@@ -17,7 +17,7 @@ function RenderData({name,email,contact,id,getUserDeleteVal}){
             <p className="render-data-el">{email}</p>
             <p className="render-data-el">{contact}</p>
             <div className="render-button-el">
-                <Link to={`/users/:${id}`}>
+                <Link to={`/users/${id}`}>
                     <button className="render-buttons"><FaEdit/></button>
                 </Link>
                 <div>
